@@ -3,6 +3,10 @@ language: go
 go:
 - tip
 
+branches:
+  only:
+  - master
+
 before_script:
   - go vet ./...
 
@@ -15,5 +19,3 @@ deploy:
   skip_cleanup: true
   api_key: $GITHUB_TOKEN"
   file: bin/gosimplerestapi
-  on:
-    tags: true
