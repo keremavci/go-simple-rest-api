@@ -1,0 +1,19 @@
+language: go
+
+go:
+- tip
+
+before_script:
+  - go vet ./...
+
+script:
+ - go test -v ./...
+ - go build -o bin/gosimplerestapi -i .
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key: $GITHUB_TOKEN"
+  file: bin/gosimplerestapi
+  on:
+    tags: true
