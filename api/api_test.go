@@ -16,7 +16,7 @@ func TestHealthCheckHandler(t *testing.T) {
 	resp, err := http.Get(server.URL + "/healthcheck")
 
 	if err != nil {
-		t.Fatal("ERROR: " + err)
+		t.Fatal(err)
 	}
 
 	if resp.StatusCode != 200 {
